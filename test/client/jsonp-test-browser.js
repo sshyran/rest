@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2014 the original author or authors
+ * Copyright 2012-2015 the original author or authors
  * @license MIT, see LICENSE.txt for details
  *
  * @author Scott Andrews
@@ -31,7 +31,7 @@
 					assert.same(request, response.request);
 					refute(request.canceled);
 					refute(response.raw.parentNode);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should use the jsonp client from the jsonp interceptor by default': function () {
 				var request = { path: '/test/client/fixtures/data.js', callback: { name: 'callback' } };
@@ -40,7 +40,7 @@
 					assert.same(request, response.request);
 					refute(request.canceled);
 					refute(response.raw.parentNode);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should abort the request if canceled': function () {
 				var request, response;
@@ -99,7 +99,7 @@
 				var request = 'https://api.github.com/';
 				return client(request).then(function (response) {
 					assert.same(request, response.request.path);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should not be the default client': function () {
 				rest.resetDefaultClient();
@@ -110,7 +110,7 @@
 			},
 			'should return a ResponsePromise': function () {
 				var response = client();
-				response.otherwise(function () {});
+				response['catch'](function () {});
 				assert.isFunction(response.entity);
 			}
 		});

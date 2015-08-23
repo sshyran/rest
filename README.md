@@ -145,8 +145,8 @@ Tested environments:
 - Chrome (stable)
 - Firefox (stable, ESR, should work in earlier versions)
 - IE (6-11)
-- Safari (5-8, iOS 4-8.1, should work in earlier versions)
-- Android (4.0-5.0, should work in earlier versions)
+- Safari (6-8, iOS 5-8.1, should work in earlier versions)
+- Android (4.0-5.1, should work in earlier versions)
 - Opera (11, 12, should work in earlier versions)
 
 Specific browser test are provided by [Travis CI](https://travis-ci.org/cujojs/rest) and [Sauce Labs' Open Sauce Plan](https://saucelabs.com/opensource). You can see [specific browser test results](https://saucelabs.com/u/cujojs-rest), although odds are they do not reference this specific release/branch/commit.
@@ -236,6 +236,7 @@ Change Log
 ----------
 
 .next
+- MAJOR: Drop hard when.js dependency in favor of ES6 Promise API. See https://github.com/cujojs/when/blob/master/docs/es6-promise-shim.md to use when.js as an ES6 Promise polyfill.
 - Update tested browsers. Removing Safari 5 and iOS 4.3 (no longer supported by SauceLabs). Adding Firefox 38 ESR and Andriod 5.1.
 
 1.3.1
