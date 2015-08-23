@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2014 the original author or authors
+ * Copyright 2012-2015 the original author or authors
  * @license MIT, see LICENSE.txt for details
  *
  * @author Scott Andrews
@@ -43,7 +43,7 @@
 						assert.equals(xhr.getResponseHeader(name), response.headers[name]);
 					}
 					refute(request.canceled);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should make an explicit GET': function () {
 				var request = { path: '/', method: 'GET' };
@@ -60,7 +60,7 @@
 						assert.equals(xhr.getResponseHeader(name), response.headers[name]);
 					}
 					refute(request.canceled);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should make a POST with an entity': function () {
 				var request = { path: '/', entity: 'hello world' };
@@ -77,7 +77,7 @@
 						assert.equals(xhr.getResponseHeader(name), response.headers[name]);
 					}
 					refute(request.canceled);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should make an explicit POST with an entity': function () {
 				var request = { path: '/', entity: 'hello world', method: 'POST' };
@@ -94,7 +94,7 @@
 						assert.equals(xhr.getResponseHeader(name), response.headers[name]);
 					}
 					refute(request.canceled);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should mixin additional properties': {
 				requiresSupportFor: { timeout: XMLHttpRequest && 'timeout' in new XMLHttpRequest() },
@@ -104,7 +104,7 @@
 						var xhr = response.raw;
 						assert.equals(xhr.timeout, 1000);
 						refute.equals(xhr.foo, 'bar');
-					}).otherwise(function (err) {
+					})['catch'](function (err) {
 						fail(JSON.stringify(err));
 					});
 				}
@@ -176,7 +176,7 @@
 			'should normalize a string to a request object': function () {
 				return client('/').then(function (response) {
 					assert.same('/', response.request.path);
-				}).otherwise(fail);
+				})['catch'](fail);
 			},
 			'should be the default client': function () {
 				rest.resetDefaultClient();
