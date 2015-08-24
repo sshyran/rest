@@ -91,7 +91,7 @@
 				entity = request.entity;
 				request.method = request.method || (entity ? 'POST' : 'GET');
 				method = request.method;
-				url = new UrlBuilder(request.path || '', request.params).build();
+				url = response.url = new UrlBuilder(request.path || '', request.params).build();
 
 				try {
 					client = response.raw = new XMLHttpRequest();

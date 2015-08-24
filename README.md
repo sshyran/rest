@@ -238,6 +238,7 @@ Change Log
 .next
 - MAJOR: Drop hard when.js dependency in favor of ES6 Promise API. See https://github.com/cujojs/when/blob/master/docs/es6-promise-shim.md to use when.js as an ES6 Promise polyfill.
 - Update tested browsers. Removing Safari 5 and iOS 4.3 (no longer supported by SauceLabs). Adding Firefox 38 ESR and Andriod 5.1.
+- include requested URL on response object
 
 1.3.1
 - fix to allow numbers and boolean values as parameters to URI Template expansion.
